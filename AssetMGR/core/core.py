@@ -28,7 +28,8 @@ def verify_password(username, password):
 app = Flask(__name__)
 
 if __name__ == '__main__':
-    app.run(port=9020)
+    app.run(host='0.0.0.0', port=9020)
+
 
 @app.route('/ratpi/view', methods=['GET', 'POST'])
 def view():
