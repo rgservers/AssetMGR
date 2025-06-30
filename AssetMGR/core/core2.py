@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 app.secret_key = 'super secret string'
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
-client = pymongo.MongoClient()
+client = pymongo.MongoClient("mongodb://mongo:27017/")
 db = client['AssetMGR']
 credentials_collection = db['credentials']
 # Use usernames instead of emails throughout the app
