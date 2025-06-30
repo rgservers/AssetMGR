@@ -8,7 +8,7 @@ import pandas as pd
 import json
 import flask_login 
 
-cli = pymongo.MongoClient("mongodb://localhost:27017/")
+cli = pymongo.MongoClient("mongodb://mongo:27017/")
 db = cli["AssetMGR"]
 tp = db["credentials"]
 pwpl = tp.find()
@@ -79,7 +79,7 @@ def view():
     if asn is None:
         return jsonify({"error": "asid parameter is required"})
     else:
-        cli = pymongo.MongoClient("mongodb://localhost:27017/")
+        cli = pymongo.MongoClient("mongodb://mongo:27017/")
         db = cli["AssetMGR"]
         tp = db["KCS"]
         tp.find({"_id": asn})
@@ -99,7 +99,7 @@ def add():
     if desc is None:
         return jsonify({"error": "Description parameter is required"})
     else:
-        cli = pymongo.MongoClient("mongodb://localhost:27017/")
+        cli = pymongo.MongoClient("mongodb://mongo:27017/")
         db = cli["AssetMGR"]
         tp = db["KCS"]
         tp.insert_one({"assetdesc":desc, "category": cat, "Location": loc, "Manufacturer_Serial_Number": mfsn, "Manufacturer": mf, "Type": typ, "Rated_Capacity": rcap, "Activity": act})
@@ -137,7 +137,7 @@ def fetch_one():
     if asn is None:
         return jsonify({"error": "asid parameter is required"})
     else:
-        cli = pymongo.MongoClient("mongodb://localhost:27017/")
+        cli = pymongo.MongoClient("mongodb://mongo:27017/")
         db = cli["AssetMGR"]
         tp = db["KCS"]
         result = tp.find_one({"_id":bson.objectid.ObjectId(asn)})
@@ -164,7 +164,7 @@ def fetch_one():
 @app.route('/ratpi/fetch_all', methods=['GET', 'POST'])
 @flask_login.login_required
 def fetch_all():
-    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
     db = cli["AssetMGR"]
     tp = db["KCS"]
     results = tp.find()
@@ -233,7 +233,7 @@ def update_asset():
     if not update_fields:
         return jsonify({"error": "No fields to update"}), 400
 
-    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
     db = cli["AssetMGR"]
     tp = db["KCS"]
     result = tp.update_one(
@@ -275,7 +275,7 @@ def logoutd():
 #    if not asids:
 #        return jsonify({"error": "asid parameter is required"}), 400
 #
-#    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+#    cli = pymongo.MongoClient("mongodb://mongo:27017/")
 #    db = cli["AssetMGR"]
 #    tp = db["KCS"]
 #    
@@ -294,7 +294,7 @@ def get_filter():
     lokup = request.args.get('lookup')
     if filter is None or lokup is None:
         return jsonify({"error": "filter and lookup parameters are required"}), 400 
-    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
     db = cli["AssetMGR"]
     tp = db["KCS"]
     results = tp.find({filter: lokup})
@@ -305,7 +305,7 @@ def get_filter():
 @app.route('/ratpi/filterhtml', methods=['GET', 'POST'])
 @flask_login.login_required
 def test():
-    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
     db = cli["AssetMGR"]
     tp = db["KCS"]
     filter = request.args.get('filter')
@@ -329,7 +329,7 @@ def filter_page():
 
 @app.route('/ratpi/report', methods=['GET', 'POST'])
 def report():
-    cli = pymongo.MongoClient("mongodb://localhost:27017/")
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
     db = cli["AssetMGR"]
     tp = db["KCS"]
     results = tp.count_documents({})
