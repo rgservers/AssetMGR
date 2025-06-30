@@ -68,7 +68,7 @@ def login():
         user = User()
         user.id = email
         flask_login.login_user(user)
-        return 'success'
+        return flask.redirect("/")
 
     return 'Bad login'
 
