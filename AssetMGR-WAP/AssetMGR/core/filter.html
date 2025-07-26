@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Page - AssetMGR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+        <main>
+            <div class="container">
+            <h1>Filter Page - AssetMGR</h1>
+            </div>
+             <div class="form-group center">
+                <p>Search records here</p>
+                    <select id="filterID">
+                        <option value="" selected disabled hidden>Select a filter</option>
+                        <option value="_id">Asset ID</option>
+                        <option value="assetdesc">Asset Description</option>
+                        <option value="Location">Location</option>
+                        <option value="Manufacturer_Serial_Number">MF Serial Number</option>
+                        <option value="Manufacturer">Manufacturer</option>
+                        <option value="Type">Type</option>
+                        <option value="Rated_Capacity">Rated Capacity</option>
+                        <option value="Activity">Activity</option>
+                    </select>
+                <input id="lookupinnput" placeholder="Enter filter value" autocomplete="off" required>
+                <button id="testButton" onclick="fetchData()">Fetch</button>
+                <div id="output"></div>
+    </div>
+    </main>
+</body>
+<footer>
+    <p>&copy; 2025 AssetMGR by RG Servers</p>
+</footer>
+<script src="/filter.js"></script>
+</html>

@@ -1,0 +1,5 @@
+flask
+pymongo
+flask-httpauth
+pandas
+flask_login
