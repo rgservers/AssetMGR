@@ -1,0 +1,23 @@
+# Use official Python base image
+FROM python:3.12-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Clone your GitHub repository
+RUN git clone --branch main https://github.com/rgservers/AssetMGR.git .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the Flask app port
+EXPOSE 9020
+
+# Avoid buffering logs
+ENV PYTHONUNBUFFERED=1
+
+# Set command to run your app
+CMD ["python", "AssetMGR-WAP/core/core.py"]
