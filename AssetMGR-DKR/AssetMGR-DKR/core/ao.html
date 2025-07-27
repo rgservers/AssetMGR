@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Object - AssetMGR</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <header>
+            <h1><b>Add Object - AssetMGR</b></h1>
+        </header>
+    </div>
+        <form id="add-object-form" action="/ratpi/addasset" method="GET">
+            <div class="form-group">
+                <label for="desc">Object Description:</label>
+                <input type="text" id="assetdesc" name="assetdesc" required>
+                <label>Category:</label>
+                <select name="category" id="cars" required>
+                    <option value="ACB">ACB</option>
+                    <option value="RMU">RMU</option>
+                    <option value="Transformer">Transformer</option>
+                    <option value="Kiosk">Kiosk</option>
+                    <option value="MCCB">MCCB</option>
+                    <option value="MCB">MCB</option>
+                    <option value="Switch">Switch</option>
+                    <option value="EB_Meter">EB Meter</option>
+                    <option value="DG_Meter">DG Meter</option>
+                    <option value="Cables">Cables</option>
+                    <option value="Panel">Panel</option>
+                    <option value="LDB">LDB</option>
+                    <option value="RPD">RPD</option>
+                    <option value="ELDB">ELDB</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label>Location:</label>
+               <select name="Location" id="Location" required>
+                    <option value="B2">B2</option>
+                    <option value="B1">B1</option>
+                    <option value="Ground">Ground Floor</option>
+                    <option value="First">First Floor</option>
+                    <option value="Second">Second Floor</option>
+                    <option value="Third">Third Floor</option>
+                    <option value="Fourth">Fourth Floor</option>
+                    <option value="Fifth">Fifth Floor</option>
+                    <option value="Terrace">Terrace</option>
+                </select>
+                <label for="Manufacturer_Serial_Number">Manufacturer Serial Number:</label>
+                <input type="text" id="Manufacturer_Serial_Number" name="Manufacturer_Serial_Number" required>
+
+                <label for="Manufacturer">Manufacturer:</label>
+                <input type="text" id="Manufacturer" name="Manufacturer" required>
+
+                <label for="Type">Type:</label>
+                <input type="text" id="Type" name="Type" required>
+
+                <label for="Rated_Capacity">Rated Capacity:</label>
+                <input type="text" id="Rated_Capacity" name="Rated_Capacity" required>
+
+                <label>Activity:</label>
+                <select name="Activity" id="Activity" required>
+                    <option value="Active">Active</option>
+                    <option value="Stock">Stock</option>
+                    <option value="Decommisioned">Decommisioned</option>
+                </select><br>
+
+                <input type="submit" value="Add Object" class="btn btn-primary">
+            </div>
+        </form>
+        <footer>
+            <p>&copy; 2025 AssetMGR by RG Servers</p>
+        </footer>
+</body>
+</html>

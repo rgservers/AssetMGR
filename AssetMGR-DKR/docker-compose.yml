@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: assetmgr-app
+    ports:
+      - "9020:9020"  # Change this to your app's port if different
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/assetmgrdb
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:6.0
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report</title>
+        <link rel="stylesheet" href="/ratpi/style.css">
+        <link rel="icon" type="image/png" href="favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header class="container">
+            <h1>Asset Report - AssetMGR</h1>
+        </header>
+        <main>
+            <div class="report-header">
+                <div class="report-header-block">
+                    <h1 class="report-header-block-text">
+                        Number of Assets:
+                    </h1><br>
+                    <h1 id="assetcount" class="report-header-block-text"></h1>
+                </div>
+                <div class="report-header-block">
+                    <h1 class="report-header-block">
+                        Number of Working Assets:
+                    </h1><br>
+                    <h2 id="testcount"></h2>
+                </div>
+            </div>
+            </main>
+            </body>
+            <footer>
+                <p>&copy; 2025 AssetMGR by RG Servers</p>
+            </footer>
+            <script>
+                async function fetchReportData() {
+                    try {
+                        const response = await fetch('/ratpi/report');
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        const data = await response.json();
+                        console.log('Report data:', data.total);
+
+                        if (data) {
+                            console.log('Report data:', data);
+                            document.getElementById('assetcount').textContent = data.total;
+                            document.getElementById('testcount').textContent = data.testcount;
+                        } else {
+                            console.log('Invalid data format:', data);
+                            document.getElementById('assetcount').textContent = 'N/A';
+                            document.getElementById('testcount').textContent = 'N/A';
+                        }
+                    } catch (error) {
+                        console.error('Fetch error:', error);
+                        document.getElementById('assetcount').textContent = 'Error';
+                        document.getElementById('testcount').textContent = 'Error';
+                    }
+                }
+                window.onload = fetchReportData;
+            </script>
+</body> 
+</html>
