@@ -321,12 +321,6 @@ def unauthorized_handler():
 @app.route('/new_user', methods=['GET','POST'])
 @flask_login.login_required
 def newusr():
-    if flask.request.method == 'GET':
-            return flask.send_file('add_user.html')
-
-    username = flask.request.form['un']
-    pwd = flask.request.form['pwd']
-    tp.insert_one({'username':username,'password':pwd})
     return flask.send_file('add_user.html')
 
 @app.route('/tally', methods=['GET', 'POST'])
@@ -383,3 +377,19 @@ def tally_report_js():
 @flask_login.login_required
 def tally_report():
     return flask.send_file('tallyreport.html')
+
+@app.route('/ratpi/add_user', methods=['GET', 'POST'])
+@flask_login.login_required
+def add_user():
+    unm = request.args.get('username')
+    pwd = request.args.get('password')
+    if unm is None or pwd is None:
+        return jsonify({"error": "username and password parameters are required"}), 400
+    cli = pymongo.MongoClient("mongodb://mongo:27017/")
+    db = cli["AssetMGR"]
+    tp = db["credentials"]
+    existing_user = tp.find_one({"username": unm})
+    if existing_user:
+        return jsonify({"error": "Username already exists"}), 400
+    tp.insert_one({"username": unm, "password": pwd})
+    return flask.redirect('/new_user')
