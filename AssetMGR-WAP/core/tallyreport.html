@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tally Report Page - AssetMGR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+        <aside class="sidebar">
+            <div class="sidebar-logo">AssetMGR</div>
+            <div class="sidebar-links">
+                <a href="/" title="Home"><i class="fas fa-home"></i></a>
+                <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+                <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+                <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+                <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+                <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+                <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </aside>
+        <main>
+            <div class="container">
+                <h1><i class="fas fa-chart-bar" style="color:#00bcd4;"></i> Tally Report</h1>
+                <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">View and fetch tally reports for your assets.<br>
+                <span style="color:#00bcd4;">Tip:</span> Use the fetch button to get the latest report.</p>
+                <div class="form-group" style="max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+                    <button id="testButton" onclick="fetchData()" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; margin-top:10px; font-weight:bold;">
+                        <i class="fas fa-search"></i> Fetch
+                    </button>
+                    <div id="output" class="output-table-container"></div>
+                </div>
+                <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                    <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Fetch the latest tally report.<br>
+                    <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your data is securely handled.
+                </div>
+            </div>
+        </main>
+</body>
+<footer>
+    <p>&copy; 2025 AssetMGR by RG Servers</p>
+</footer>
+<script src="/tallyreport.js"></script>
+<style>
+    .output-table-container {
+        margin-top: 18px;
+        overflow-x: auto;
+        background: #232323;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px #0002;
+        padding: 16px;
+        text-align: center;
+    }
+    .output-table-container table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #232323;
+        color: #e0e0e0;
+        font-size: 1em;
+    }
+    .output-table-container th, .output-table-container td {
+        border: 1px solid #444;
+        padding: 8px 12px;
+        text-align: left;
+    }
+    .output-table-container th {
+        background: #181818;
+        color: #00bcd4;
+        font-weight: bold;
+    }
+    .output-table-container tr:nth-child(even) {
+        background: #202020;
+    }
+    .output-table-container tr:hover {
+        background: #2a2a2a;
+    }
+    .output-table-container .error-message {
+        color: #ff5252;
+        font-weight: bold;
+        margin: 16px 0;
+    }
+    .output-table-container .info-message {
+        color: #b0b0b0;
+        margin: 16px 0;
+    }
+</style>
+</html>

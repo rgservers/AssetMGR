@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    </head>
+    <body>
+        <aside class="sidebar">
+            <div class="sidebar-logo">AssetMGR</div>
+            <div class="sidebar-links">
+                <a href="/" title="Home"><i class="fas fa-home"></i></a>
+                <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+                <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+                <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+                <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+                <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+                <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        <aside class="sidebar">
+            <div class="sidebar-logo">AssetMGR</div>
+            <div class="sidebar-links">
+                <a href="/" title="Home"><i class="fas fa-home"></i></a>
+                <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+                <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+                <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+                <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+                <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+                <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </aside>
+        <main>
+            <div class="container">
+                <h1><i class="fas fa-chart-bar" style="color:#00bcd4;"></i> Asset Report</h1>
+                <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">View asset statistics and working assets.<br>
+                <span style="color:#00bcd4;">Tip:</span> Check the report for asset health.</p>
+                <div class="report-header">
+                    <div class="report-header-block">
+                        <h2 class="report-header-block-text"><i class="fas fa-box"></i> Number of Assets:</h2>
+                        <h2 id="assetcount" class="report-header-block-text"></h2>
+                    </div>
+                    <div class="report-header-block">
+                        <h2 class="report-header-block-text"><i class="fas fa-check-circle"></i> Number of Working Assets:</h2>
+                        <h2 id="testcount"></h2>
+                    </div>
+                </div>
+                <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                    <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Review asset health and statistics.<br>
+                    <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your data is securely handled.
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 AssetMGR by RG Servers</p>
+        </footer>
+        <script>
+            async function fetchReportData() {
+                try {
+                    const response = await fetch('/ratpi/report');
+                    if (!response.ok) return;
+                    const data = await response.json();
+                    document.getElementById('assetcount').textContent = data.total;
+                } catch (error) {}
+            }
+            window.onload = fetchReportData;
+        </script>
+                window.onload = fetchReportData;
+            </script>
+</body> 
+</html>

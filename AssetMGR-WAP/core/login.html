@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Login - AssetMGR</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+    <!-- No sidebar/navbar for login page -->
+        <main>
+            <div class="container">
+                <h1><i class="fas fa-sign-in-alt" style="color:#00bcd4;"></i> Login</h1>
+                <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">Login to access AssetMGR features.<br>
+                <span style="color:#00bcd4;">Tip:</span> Use your username and password to sign in securely.</p>
+                <div class="form-group" style="max-width:400px; margin:32px auto 0 auto; display:flex; flex-direction:column; align-items:center; gap:18px; background:#222831; box-shadow:0 2px 8px #0002; border-radius:10px; padding:32px 24px;">
+                    <form action='login' method='POST' style="width:100%; display:flex; flex-direction:column; gap:18px; align-items:center;">
+                        <label for="email" style="align-self:flex-start; color:#00bcd4; font-size:1em; margin-bottom:6px;"><i class="fas fa-user"></i> Username</label>
+                        <input type='text' name='email' id='email' placeholder='Enter username' required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:10px 14px;border-radius:7px;border:1.5px solid #00bcd4;background:#181818;color:#e0e0e0;outline:none; margin-bottom:10px;">
+                        <label for="password" style="align-self:flex-start; color:#00bcd4; font-size:1em; margin-bottom:6px;"><i class="fas fa-key"></i> Password</label>
+                        <input type='password' name='password' id='password' placeholder='Enter password' required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:10px 14px;border-radius:7px;border:1.5px solid #00bcd4;background:#181818;color:#e0e0e0;outline:none; margin-bottom:18px;">
+                        <button type="submit" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:12px 0; border-radius:8px; border:none; cursor:pointer; font-weight:bold; width:100%; max-width:350px; margin-top:10px;">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+                </div>
+                <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                    <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Only authorized users can access asset management features.<br>
+                    <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your credentials are securely stored.
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 AssetMGR by RG Servers</p>
+        </footer>
+    </body>
+</html>

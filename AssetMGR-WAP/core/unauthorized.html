@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Please login to continue - AssetMGR</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+    <!-- No sidebar/navbar for unauthorized page -->
+        <main>
+            <div class="container">
+                <h1><i class="fas fa-lock" style="color:#00bcd4;"></i> Unauthorized Access</h1>
+                <p style="font-size:1.2em; color:#e0e0e0; margin-bottom:24px;">You must be logged in to view this page.<br>
+                For your security, please login to continue.</p>
+                <ul style="text-align:left; max-width:400px; margin:0 auto 24px auto; color:#b0b0b0;">
+                    <li><i class="fas fa-info-circle"></i> Access to this section is restricted.</li>
+                    <li><i class="fas fa-user-shield"></i> Your session may have expired.</li>
+                    <li><i class="fas fa-sign-in-alt"></i> Click below to login and regain access.</li>
+                </ul>
+                <button onclick="location.href='/login'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:12px 32px; border-radius:8px; border:none; cursor:pointer; margin-top:16px; font-weight:bold;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </div>
+        </main>
+    </body>
+</html>
