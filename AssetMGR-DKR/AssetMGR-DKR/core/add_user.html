@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Create a new user - AssetMGR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <aside class="sidebar">
+            <div class="sidebar-logo">AssetMGR</div>
+            <div class="sidebar-links">
+                <a href="/" title="Home"><i class="fas fa-home"></i></a>
+                <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+                <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+                <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+                <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+                <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+                <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </aside>
+        <main>
+            <div class="container">
+                <h1><i class="fas fa-user-plus" style="color:#00bcd4;"></i> Create a New User</h1>
+                <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">Add a new user to AssetMGR for secure access and management.<br>
+                <span style="color:#00bcd4;">Tip:</span> Use a strong password for better security.</p>
+                <div class="form-group" style="max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+                    <form action="/ratpi/add_user" method="GET" style="display:flex; flex-direction:column; gap:14px;">
+                        <label for="username" style="text-align:left;"><i class="fas fa-user"></i> Username</label>
+                        <input id="username" name="username" placeholder="Enter username" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                        <label for="password" style="text-align:left;"><i class="fas fa-key"></i> Password</label>
+                        <input id="password" name="password" type="password" placeholder="Enter password" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                        <button type="submit" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; margin-top:10px; font-weight:bold;">
+                            <i class="fas fa-user-plus"></i> Create User
+                        </button>
+                    </form>
+                </div>
+                <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                    <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Only authorized users can access asset management features.<br>
+                    <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your credentials are securely stored.
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

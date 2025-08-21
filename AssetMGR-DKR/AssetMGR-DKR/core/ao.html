@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Object - AssetMGR</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">AssetMGR</div>
+        <div class="sidebar-links">
+            <a href="/" title="Home"><i class="fas fa-home"></i></a>
+            <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+            <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+            <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+            <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+            <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+            <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </aside>
+    <main>
+        <div class="container">
+            <h1><i class="fas fa-plus-square" style="color:#00bcd4;"></i> Add Object</h1>
+            <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">Add a new asset to AssetMGR for tracking and management.<br>
+            <span style="color:#00bcd4;">Tip:</span> Fill all fields for complete asset details.</p>
+            <form id="add-object-form" action="/ratpi/addasset" method="GET" style="max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+                <label for="assetdesc" style="text-align:left;"><i class="fas fa-box"></i> Object Description</label>
+                <input type="text" id="assetdesc" name="assetdesc" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                <label for="category" style="text-align:left;"><i class="fas fa-tags"></i> Category</label>
+                <select name="category" id="cars" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                    <option value="ACB">ACB</option>
+                    <option value="RMU">RMU</option>
+                    <option value="Transformer">Transformer</option>
+                    <option value="Kiosk">Kiosk</option>
+                    <option value="MCCB">MCCB</option>
+                    <option value="MCB">MCB</option>
+                    <option value="Switch">Switch</option>
+                    <option value="EB_Meter">EB Meter</option>
+                    <option value="DG_Meter">DG Meter</option>
+                    <option value="Cables">Cables</option>
+                    <option value="Panel">Panel</option>
+                    <option value="LDB">LDB</option>
+                    <option value="RPD">RPD</option>
+                    <option value="ELDB">ELDB</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="Location" style="text-align:left;"><i class="fas fa-map-marker-alt"></i> Location</label>
+                <select name="Location" id="Location" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                    <option value="B2">B2</option>
+                    <option value="B1">B1</option>
+                    <option value="Ground">Ground Floor</option>
+                    <option value="First">First Floor</option>
+                    <option value="Second">Second Floor</option>
+                    <option value="Third">Third Floor</option>
+                    <option value="Fourth">Fourth Floor</option>
+                    <option value="Fifth">Fifth Floor</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="Manufacturer_Serial_Number" style="text-align:left;"><i class="fas fa-barcode"></i> Manufacturer Serial Number</label>
+                <input type="text" id="Manufacturer_Serial_Number" name="Manufacturer_Serial_Number" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                <label for="Manufacturer" style="text-align:left;"><i class="fas fa-industry"></i> Manufacturer</label>
+                <input type="text" id="Manufacturer" name="Manufacturer" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                <label for="Type" style="text-align:left;"><i class="fas fa-cube"></i> Type</label>
+                <input type="text" id="Type" name="Type" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                <label for="Rated_Capacity" style="text-align:left;"><i class="fas fa-bolt"></i> Rated Capacity</label>
+                <input type="text" id="Rated_Capacity" name="Rated_Capacity" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                <label for="Activity" style="text-align:left;"><i class="fas fa-tasks"></i> Activity</label>
+                <select name="Activity" id="Activity" required style="width:100%;max-width:350px;box-sizing:border-box;font-size:1em;padding:8px 12px;border-radius:5px;border:1px solid #00bcd4;background:#222831;color:#e0e0e0;outline:none;">
+                    <option value="Active">Active</option>
+                    <option value="Stock">Stock</option>
+                    <option value="Decommisioned">Decommisioned</option>
+                </select>
+                <button type="submit" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; margin-top:10px; font-weight:bold;">
+                    <i class="fas fa-plus-square"></i> Add Object
+                </button>
+            </form>
+            <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Fill all fields for complete asset details.<br>
+                <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your data is securely handled.
+            </div>
+        </div>
+    </main>
+        </form>
+        <footer>
+            <p>&copy; 2025 AssetMGR by RG Servers</p>
+        </footer>
+</body>
+</html>

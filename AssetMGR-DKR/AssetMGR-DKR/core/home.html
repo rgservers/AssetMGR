@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetMGR Home</title>
+    <link rel="stylesheet" href="/ratpi/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">AssetMGR</div>
+        <div class="sidebar-links">
+            <a href="/" title="Home"><i class="fas fa-home"></i></a>
+            <a href="/add-object" title="Add Asset"><i class="fas fa-plus-square"></i></a>
+            <a href="/get_details" title="Edit/View"><i class="fas fa-edit"></i></a>
+            <a href="/filter" title="Filter"><i class="fas fa-filter"></i></a>
+            <a href="/tally" title="Tally"><i class="fas fa-list-ol"></i></a>
+            <a href="/tallyreport" title="Report"><i class="fas fa-chart-bar"></i></a>
+            <a href="/logout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </aside>
+    <main>
+        <div class="container">
+            <h1><i class="fas fa-home" style="color:#00bcd4;"></i> Welcome to AssetMGR</h1>
+            <p style="font-size:1.1em; color:#b0b0b0; margin-bottom:18px;">Manage your assets efficiently with AssetMGR.<br>
+            <span style="color:#00bcd4;">Tip:</span> Use the navigation to access all features.</p>
+            <div class="container_hp center" style="max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+                <button class="button" onclick="location.href='/add-object'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-plus-square"></i> Add an Asset
+                </button>
+                <button class="button" onclick="location.href='/get_details'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-edit"></i> Edit/View Asset
+                </button>
+                <button class="button" onclick="location.href='/filter'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-filter"></i> Filter Assets
+                </button>
+                <button class="button" onclick="location.href='/tally'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-list-ol"></i> Tally Assets
+                </button>
+                <button class="button" onclick="location.href='/tallyreport'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-chart-bar"></i> Tally Report
+                </button>
+                <button class="button" onclick="location.href='/logout'" style="background:#00bcd4; color:#181818; font-size:1.1em; padding:10px 28px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            <div style="margin-top:32px; color:#b0b0b0; text-align:center;">
+                <i class="fas fa-info-circle" style="color:#00bcd4;"></i> Use the navigation to access all features.<br>
+                <i class="fas fa-shield-alt" style="color:#00bcd4;"></i> Your data is securely handled.
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 - AssetMGR by RG Servers</p>
+    </footer>
+</body>
+</html>
